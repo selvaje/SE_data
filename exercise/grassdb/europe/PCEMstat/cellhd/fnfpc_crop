@@ -1,0 +1,12 @@
+proj:       99
+zone:       0
+north:      6015390
+south:      3303955
+east:       5676400
+west:       3876180
+cols:       90
+rows:       136
+e-w resol:  20002.44444444
+n-s resol:  19937.02205882
+format:     1
+compressed: 2
