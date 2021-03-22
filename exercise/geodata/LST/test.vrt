@@ -1,0 +1,104 @@
+<VRTDataset rasterXSize="1080" rasterYSize="840">
+  <SRS dataAxisToSRSAxisMapping="2,1">GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]]</SRS>
+  <GeoTransform>  2.6999999999993179e+01,  8.3333333333330574e-03,  0.0000000000000000e+00,  5.0000000000027995e+00,  0.0000000000000000e+00, -8.3333333333330574e-03</GeoTransform>
+  <VRTRasterBand dataType="Float32" band="1">
+    <NoDataValue>-9999</NoDataValue>
+    <ColorInterp>Gray</ColorInterp>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month10.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month11.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month12.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month3.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month4.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month5.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month6.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month7.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month8.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">LST_MOYDmax_month9.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1080" RasterYSize="840" DataType="Float32" BlockXSize="1080" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <DstRect xOff="0" yOff="0" xSize="1080" ySize="840" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+</VRTDataset>
