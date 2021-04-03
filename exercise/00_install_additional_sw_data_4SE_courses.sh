@@ -34,7 +34,7 @@ echo Install R studio https://rstudio.com
     wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1106-amd64.deb
     sudo dpkg -i rstudio-1.4.1106-amd64.deb
     # test rstudio
-    rstudio    
+    # rstudio    
 
 echo  Install additional editors
     
