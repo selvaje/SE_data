@@ -1,0 +1,26 @@
+[general]
+creator=R package 'raster'
+created=2016-11-01 20:47:58
+[georeference]
+nrows=2083
+ncols=1643
+xmin=19165
+ymin=164300
+xmax=347765
+ymax=580900
+projection=NA
+[data]
+datatype=FLT8S
+byteorder=little
+nbands=1
+bandorder=BIL
+categorical=FALSE
+minvalue=-0.848245918750763
+maxvalue=0.823539316654205
+nodatavalue=-1.7e+308
+[legend]
+legendtype=
+values=
+color=
+[description]
+layername=ccpc2_200
