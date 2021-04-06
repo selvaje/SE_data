@@ -29,10 +29,10 @@ echo  Install OpenEV http://openev.sourceforge.net
 echo Install R studio https://rstudio.com
    
     # First install dependencies libraries
-    sudo apt install -y lib32gcc1 lib32stdc++6 libc6-i386 libclang-6.0-dev libclang-common-6.0-dev libclang-dev libclang1-6.0 libgc1c2 libobjc-7-dev libobjc4
+    apt install -y lib32gcc1 lib32stdc++6 libc6-i386 libclang-6.0-dev libclang-common-6.0-dev libclang-dev libclang1-6.0 libgc1c2 libobjc-7-dev libobjc4
     # download and install rstudio 
     wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1106-amd64.deb
-    sudo dpkg -i rstudio-1.4.1106-amd64.deb
+    dpkg -i rstudio-1.4.1106-amd64.deb
     # test rstudio
     # rstudio    
 
