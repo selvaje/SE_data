@@ -49,5 +49,3 @@ echo  Install additional editors
 
 echo  Download the data and start to follow the exercises.
 
-    cd $HOME
-    git clone  https://github.com/selvaje/SE_data.git
