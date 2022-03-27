@@ -19,31 +19,34 @@ echo  Install OpenEV http://openev.sourceforge.net
     # test openev 
     # openev /home/user/jupyter/notebook_gallery/Rasterio/data/world.rgb.tif /home/user/.local/share/cartopy/shapefiles/natural_earth/physical/ne_110m_land.shp
 
-# Install a new version of [R](https://www.r-project.org/) 
+# Install a new version of [R](https://www.r-project.org/   ; https://cran.mirror.garr.it/CRAN/ ) 
 
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-    add-apt-repository -y 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
-    apt update -y 
-    apt install -y r-base r-base-core r-recommended r-base-dev
+apt -y update -qq
+# install two helper packages we need
+apt -y install --no-install-recommends software-properties-common dirmngr
+# add the signing key (by Michael Rutter) for these repos
+# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
+# Fingerprint: 298A3A825C0D65DFD57CBB651716619E084DAB9
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo  tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
+add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
 
+apt -y install --no-install-recommends r-base
+    
 echo Install R studio https://rstudio.com
    
-    # First install dependencies libraries
-    apt install -y lib32gcc1 lib32stdc++6 libc6-i386 libclang-6.0-dev libclang-common-6.0-dev libclang-dev libclang1-6.0 libgc1c2 libobjc-7-dev libobjc4
-    # download and install rstudio 
-    wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1106-amd64.deb
-    dpkg -i rstudio-1.4.1106-amd64.deb
-    # test rstudio
-    # rstudio    
-
+apt-get install gdebi-core
+wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2022.02.1-461-amd64.deb
+gdebi rstudio-2022.02.1-461-amd64.deb
+    
 echo  Install additional editors
     
     # one of the oldest editor which is still used my many programmer
-    apt install -y emacs25
+    apt install -y emacs
     # and editor markdown language
     add-apt-repository -y ppa:wereturtle/ppa
-    apt update -y
-    apt install -y ghostwriter
+    # apt update -y
+    # apt install -y ghostwriter
     # test ghostwriter
     # ghostwriter /home/user/jupyter/notebook_gallery/Pandas_py3/README.md
 
