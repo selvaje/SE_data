@@ -12,7 +12,7 @@ echo  Install OpenEV http://openev.sourceforge.net
     tar xvf openev-linux-180.tar.gz
     #install openev
     cd openev
-    ./install linux   /usr/bin/openev
+    bash ./install linux   /usr/bin/openev
     # add to the ~/.bashrc the alias openev
     echo "alias openev='/usr/bin/openev/bin/openev' "  >>  ~/.bashrc
     source ~/.bashrc
