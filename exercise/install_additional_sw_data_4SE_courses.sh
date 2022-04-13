@@ -14,8 +14,8 @@ echo  Install OpenEV http://openev.sourceforge.net
     cd openev
     bash ./install linux   /usr/bin/openev
     # add to the ~/.bashrc the alias openev
-    echo "alias openev='/usr/bin/openev/bin/openev' "  >>  /home/uers/.bashrc
-    source /home/uers/.bashrc
+    echo "alias openev='/usr/bin/openev/bin/openev' "  >>  /home/user/.bashrc
+    source /home/user/.bashrc
     # test openev 
     # openev /home/user/jupyter/notebook_gallery/Rasterio/data/world.rgb.tif /home/user/.local/share/cartopy/shapefiles/natural_earth/physical/ne_110m_land.shp
 
