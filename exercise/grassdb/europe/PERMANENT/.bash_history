@@ -187,3 +187,29 @@ bg
  ps -aux |  grep jupyther 
  ps -aux |  grep jupyter 
 exit 
+exit
+g.extension -o 
+g.extension extension=r.stream.basins  -o  
+g.extension -l
+g.extension extension=r.stream.basins  -d 
+ll /usr/lib64/grass78/scripts/g.extension
+ls  /usr/lib64/grass78/scripts/g.extension
+exit
+g.extension extension=r.stream.basins  
+exit
+g.extension extension=r.stream.basins  
+g.extension extension=r.stream.order url="https://github.com/OSGeo/grass-addons/tree/grass7/src/raster/r.stream.order" branch=grass7 
+g.extension extension=r.stream.order url="https://github.com/OSGeo/grass-addons/tree/grass7/src/raster/r.stream.order  branch=grass7" 
+exit
+g.extension extension=r.stream.order 
+exit
+g.extension extension=r.stream.order 
+g.extension extension=r.stream.order -v 
+g.extension extension=r.stream.order --verbose
+g.extension extension=r.stream.order 
+g.extension extension=r.stream.order url=/home/selv/grass_addons/src/raster/r.stream.basins/
+g.extension extension=r.stream.order url=/home/selv/grass_addons/src/raster/r.stream.basins/
+ll /home/selv/.grass7/addons/docs/html/
+ls  /home/selv/.grass7/addons/docs/html/
+r.stream.basins -help 
+exit
