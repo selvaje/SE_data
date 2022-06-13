@@ -1,0 +1,480 @@
+% Latex/Beamer template for the JRC presentations
+%
+% Author: Daniele Borio - 2019
+ 
+
+\NeedsTeXFormat{LaTeX2e}[1995/06/01]
+\ProvidesPackage{db-beamer}[2020/04/23 v0.1 DB Beamer style]
+
+
+\mode<presentation>
+\usepackage{pgfcomp-version-0-65}
+
+%\DeclareGraphicsRule{.png}{eps}{.bb}{'convert #1 eps:-} %no longer necessary
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%																Colors and fonts														%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% colors
+\definecolor{textcolor}{RGB}{77, 77, 77}	% Dark gray as basic color
+\definecolor{titleblue}{RGB}{3,78,162}
+\definecolor{mainyellow}{RGB}{255,209,41}
+\definecolor{jrcblue}{RGB}{55,172,222}
+\definecolor{lightblue}{RGB}{34,117,176}
+
+% modify this variable if the package is place in a different path
+\def\@path{style}
+
+
+\renewcommand{\rmdefault}{phv} % Arial
+\renewcommand{\sfdefault}{phv} % Arial
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%							Some useful commands to use on the front page									%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Defines the type of Title Page to be used
+\def\@TitlePageType{1}
+
+% Command to be used by the user
+\def\TitlePageType#1{\gdef\@TitlePageType{#1}}
+
+\def\@CopyrightInfo{}
+\def\CopyrightInfo#1{\gdef\@CopyrightInfo{#1}}
+
+\newlength{\linelen}
+\newlength{\titleoffset}
+\setlength{\linelen}{18mm}
+\setlength{\titleoffset}{12.5mm}
+
+\newif\ifshrinktitle
+\def\shrinktitle
+{
+	\shrinktitletrue
+	\ifdim \linelen > 0mm
+		\setlength{\linelen}{10mm}
+	\fi
+	\setlength{\titleoffset}{5mm}
+}
+
+\def\handout
+{
+	\setlength{\linelen}{0mm}
+	\input{style/handout}		
+}
+
+\usefonttheme{structurebold}
+
+\setbeamersize{text margin left=1cm}
+
+\setbeamercolor{normal text}{fg =textcolor}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{slide title}{fg=titleblue}
+\setbeamercolor{subtitle}{fg = mainyellow}
+\setbeamercolor{structure}{fg = textcolor}
+\setbeamercolor{page number in head/foot}{fg = textcolor}
+\setbeamercolor{blacktext}{fg = black}
+\setbeamercolor{title2}{fg = lightblue}
+
+\setbeamerfont{normal text}{}
+\setbeamerfont{subnormal}{size={\fontsize{8}{9}}}
+\setbeamerfont{normal}{size={\fontsize{9}{10}}}
+\setbeamerfont{large}{size={\fontsize{11}{12}}}
+\setbeamerfont{subtitle}{series=\Large}
+\setbeamerfont{title}{size={\fontsize{25}{30}}}
+\setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
+\setbeamerfont{page number in head/foot}{size=\fontsize{7}{8}}
+\setbeamerfont{institute}{size=\tiny}
+\setbeamerfont{mainfooter}{series=\bfseries, size=\tiny}
+\setbeamerfont{author}{series=\itshape}
+\setbeamerfont{notice}{size=\fontsize{4.7}{5.5}}
+
+% Does anyone actually use the nav symbols?
+\setbeamertemplate{navigation symbols}{}
+
+% Post-it: used to highlight boxes when I want to see how big they
+% really are on the slide:
+\setbeamercolor{postit}{fg=black,bg=yellow}
+
+
+%------------------------TITLE PAGE-----------------------------------%
+
+\setbeamertemplate{title page}{%
+	\ifnum \@TitlePageType = 1
+		\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
+  		% place the title
+  			\begin{pgftranslate}{\pgfpoint{0.5cm}{1.1cm}}
+      			\pgfbox[left,top]{
+				\begin{minipage}{13.54cm}
+					\normalbaselines 
+					\usebeamerfont{title}
+					\usebeamercolor[fg]{title}
+					\inserttitle
+				\end{minipage}	
+				}
+		   \end{pgftranslate}
+   		   %
+	   	   \begin{pgftranslate}{\pgfpoint{0.5cm}{-2cm}}
+   				\pgfbox[left,top]{
+   				\begin{minipage}{13.54cm}
+   				\normalbaselines 
+   				\usebeamerfont{subtitle}
+   				\usebeamercolor[fg]{subtitle}
+   				\insertsubtitle
+   				\end{minipage}	
+   				}
+   			\end{pgftranslate}
+		  %
+   		  \begin{pgftranslate}{\pgfpoint{0.5cm}{-3.5cm}}
+   			\pgfbox[left,top]{
+   				\begin{minipage}{13.54cm}
+   					\begin{flushright}
+   					\normalbaselines 
+					\usebeamerfont{author}
+					\usebeamercolor[fg]{title}
+					\insertauthor, \insertdate
+   					\end{flushright}
+   				\end{minipage}	
+   			}
+   		 \end{pgftranslate}
+		 %
+		 \end{pgfpicture}
+	 \else
+	 	\ifnum \@TitlePageType=2
+	 		\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
+	 	  		% place the title
+	 			\begin{pgftranslate}{\pgfpoint{0.8cm}{-0.9cm}}
+	 			\pgfbox[left,bottom]{
+	 			\begin{minipage}{13.54cm}
+	 				\normalbaselines 
+	 				\usebeamerfont{title}
+	 				\usebeamercolor[fg]{subtitle}
+	 				\inserttitle
+	 			\end{minipage}	
+	 			}
+	 			\end{pgftranslate}
+ 			    % Add the subtitle
+	 			\begin{pgftranslate}{\pgfpoint{0.8cm}{-1.1cm}}
+ 					\pgfbox[left,top]{
+ 						\begin{minipage}{13.54cm}
+ 							\normalbaselines 
+ 							\usebeamerfont{subtitle}
+ 							\usebeamercolor[fg]{title}
+ 							\insertsubtitle
+ 						\end{minipage}	
+ 					}
+ 				\end{pgftranslate}
+ 		    %
+ 			\end{pgfpicture}
+	 	\else % Page type 3
+	 		\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
+	 		% place the title
+	 		\begin{pgftranslate}{\pgfpoint{0.8cm}{-0.9cm}}
+	 			\pgfbox[left,bottom]{
+	 				\begin{minipage}{13.54cm}
+	 					\normalbaselines 
+	 					\usebeamerfont{title}
+	 					\usebeamercolor[fg]{title2}
+	 					\inserttitle
+	 				\end{minipage}	
+	 			}
+	 		\end{pgftranslate}
+	 		% Add the subtitle
+	 		\begin{pgftranslate}{\pgfpoint{0.8cm}{-1.1cm}}
+	 			\pgfbox[left,top]{
+	 				\begin{minipage}{13.54cm}
+	 					\normalbaselines 
+	 					\usebeamerfont{subtitle}
+	 					\usebeamercolor[fg]{normal text}
+	 					\insertsubtitle
+	 				\end{minipage}	
+	 			}
+	 		\end{pgftranslate}
+	 		%
+	 	\end{pgfpicture}
+	 	\fi
+	 \fi
+%
+}
+
+%------------------------HEAD LINE---------------------------------%
+
+% \setbeamertemplate{headline}[text line]{
+% \ifnum\c@framenumber=1
+%  \hspace{-6mm}
+%  \includegraphics[width=29mm]{style/newEClogo}
+% \fi
+%}
+
+%------------------------FRAME TITLE-------------------------------%
+ 	
+\setbeamertemplate{frametitle}{%
+ \begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
+ 		\begin{pgftranslate}{\pgfpoint{0.8cm}{-\titleoffset}}
+ 			\pgfbox[left,bottom]{
+ 				\begin{minipage}{13.54cm}
+ 					\normalbaselines 
+ 					\usebeamerfont{frametitle}
+ 					\usebeamercolor[fg]{slide title}
+ 					\insertframetitle
+ 				\end{minipage}	
+ 			}
+ 		\end{pgftranslate}
+  \end{pgfpicture}
+}
+
+%------------------------FOOTLINE-------------------------------%
+
+\setbeamertemplate{footline}{%  
+  \ifnum\c@framenumber=1
+ 
+ \else
+  \begin{beamercolorbox}{page number in head/foot}
+    \hspace{1.7cm}{\usebeamerfont{page number in head/foot}\insertframenumber} \vspace{0.2cm}
+  \end{beamercolorbox}%
+  \fi
+}
+
+%------------------------BACKGROUND SCHEME----------------------%
+
+\setbeamertemplate{background canvas}{%
+  \ifbeamer@plainframe
+  \else
+    \ifnum\c@framenumber=1%% On title page
+    	\ifnum\@TitlePageType=1
+	        \begin{pgfpicture}
+      		%
+      		\begin{pgftranslate}{\pgfpoint{0mm}{-9cm}}
+      			\pgfbox[base,bottom]{\includegraphics[width=16cm,height=9cm]{style/TitlePage}}
+      		\end{pgftranslate}
+  		    
+  		    \pgfsetfillcolor{white}
+  			\pgfrect[fill]{\pgfxy(0,0)}{\pgfxy(16, 1.42)}      	
+  		
+	  		%  Add Commission Logo
+  			\begin{pgftranslate}{\pgfpoint{69mm}{-0.44cm}}
+  				\pgfbox[base,bottom]{\includegraphics[width=2.2cm,height=1.516cm]{style/CentreLogo}}
+  			\end{pgftranslate}
+  	
+	  		%  Add JRC Logo at the bottom
+  			\begin{pgftranslate}{\pgfpoint{75.4mm}{-7.58cm}}
+  				\pgfbox[base,bottom]{\includegraphics[width=0.92cm,height=0.616cm]{style/bottomText}}
+  			\end{pgftranslate}
+  	
+	  		%  Add yellow bar
+  			\pgfsetfillcolor{mainyellow}
+  			\begin{pgftranslate}{\pgfpoint{11mm}{-7.58cm}}
+  				\pgfrect[fill]{\pgfxy(0,0)}{\pgfxy(0.05,6.42)}
+  			\end{pgftranslate}
+  			
+	      \end{pgfpicture}
+      \else 
+      	\ifnum\@TitlePageType=2
+      		\begin{pgfpicture}
+      			\begin{pgftranslate}{\pgfpoint{0mm}{-9cm}}
+      				\pgfbox[base,bottom]{\includegraphics[width=16cm,height=9cm]{style/TitlePage}}
+      			\end{pgftranslate}
+      		\end{pgfpicture}
+      	
+      		%  Add yellow bar
+      		\pgfsetfillcolor{mainyellow}
+      		\begin{pgftranslate}{\pgfpoint{7.5mm}{-4.576cm}}
+      			\pgfrect[fill]{\pgfxy(0,0)}{\pgfxy(0.05,4.576)}
+      		\end{pgftranslate}
+      	
+      		%  Add Commission Logo
+      		\begin{pgftranslate}{\pgfpoint{12.7cm}{-8.7cm}}
+      			\pgfbox[left,bottom]{\includegraphics[width=2.26cm,height=0.6cm]{style/EcLogo2}}
+      		\end{pgftranslate}
+      	\else % Here the use the third type of opening slide
+      		\pgfsetfillcolor{mainyellow}
+      	    \begin{pgftranslate}{\pgfpoint{-2.2mm}{-9cm}}
+      	    	\pgfrect[fill]{\pgfxy(0,0)}{\pgfxy(16,9)}
+      		\end{pgftranslate}
+      		
+	      	%  Add blue bar
+      		\pgfsetfillcolor{lightblue}
+      		\begin{pgftranslate}{\pgfpoint{5.3mm}{-4.576cm}}
+      			\pgfrect[fill]{\pgfxy(0,0)}{\pgfxy(0.05,4.576)}
+      		\end{pgftranslate}
+
+	      	%  Add Commission Logo
+    	  	\begin{pgftranslate}{\pgfpoint{12.48cm}{-8.7cm}}
+      			\pgfbox[left,bottom]{\includegraphics[width=2.26cm,height=0.6cm]{style/EcLogo2}}
+      		\end{pgftranslate}
+      	\fi
+      \fi
+    \else% This is the back-ground of a standard page
+		%  Add top yellow bar
+		\pgfsetfillcolor{mainyellow}
+		\begin{pgftranslate}{\pgfpoint{9mm}{-\linelen}}
+			\pgfrect[fill]{\pgfxy(0,0)}{\pgfxy(0.05,\linelen)}
+		\end{pgftranslate}
+
+		\begin{pgftranslate}{\pgfpoint{8mm}{-9cm}}
+			\pgfrect[fill]{\pgfxy(0,0)}{\pgfxy(0.05,0.59)}
+		\end{pgftranslate}		
+		\begin{pgftranslate}{\pgfpoint{127mm}{-8.7cm}}
+			\pgfbox[left,bottom]{\includegraphics[height=0.07\paperheight]{style/EcLogo}}
+		\end{pgftranslate}
+
+    \fi%
+  \fi
+}
+
+
+% New Commands
+\newcommand{\superimpose}[2]{%
+  {\ooalign{$#1\@firstoftwo#2$\cr\hspace{-0.2mm}$#1\@secondoftwo#2$\hfil\cr}}}
+  
+\newcommand{\lessgreater}{\mathpalette\superimpose{{\bigcirc}{\sum}}}
+ 
+% \newcommand{\osum}{\mathrlap{\circ}{\sum}}
+% \newcommand*{\osum}{\ensuremath{\mathaccent\circ\sum}}
+
+% KEEP IN TOUCH FRAME
+\def\KeepInTouchFrame
+{
+	\begin{frame}
+	\frametitle{Keep in touch}
+	
+	\begin{pgfpicture}
+		%
+		\pgfsetfillcolor{mainyellow}
+		\begin{pgftranslate}{\pgfpoint{0mm}{-3.5cm}}
+			\pgfbox[left,bottom]{\includegraphics[width=16cm]{style/keepInTouch}}
+		\end{pgftranslate}	
+	\end{pgfpicture}
+	
+    \end{frame}	
+}
+
+% THANK YOU FRAME
+\def\ThankYouFrame
+{
+	\ifnum\@TitlePageType=3		% Yellow page
+		\begin{frame}
+			\frametitle{} % Empty title
+
+			\begin{pgfpicture}
+			\pgfsetfillcolor{mainyellow}
+			\begin{pgftranslate}{\pgfpoint{-6.8mm}{-0.8cm}}
+			\pgfrect[fill]{\pgfxy(0,0)}{\pgfxy(16,4.5)}
+			\end{pgftranslate}
+	
+			%
+			\pgfsetfillcolor{lightblue}
+			\begin{pgftranslate}{\pgfpoint{4.0mm}{0.58cm}}
+			\pgfrect[fill]{\pgfxy(0,0)}{\pgfxy(0.05,3.11)}
+			\end{pgftranslate}
+	
+			%
+			\begin{pgftranslate}{\pgfpoint{0.8cm}{0.6cm}}
+			\pgfbox[left,bottom]{
+			\begin{minipage}{13.54cm}
+				\normalbaselines 
+				\usebeamerfont{title}
+				\usebeamercolor[fg]{title2}
+				Thank you
+			\end{minipage}	
+			}
+			\end{pgftranslate}
+	
+			\begin{pgftranslate}{\pgfpoint{0.8cm}{-2cm}}
+			\pgfbox[left,bottom]{\includegraphics[width=1.35cm]{style/license}
+			}
+			\end{pgftranslate}
+	
+			\begin{pgftranslate}{\pgfpoint{0.7cm}{-2.5cm}}
+			\pgfbox[left,top]{
+			\begin{minipage}{13.8cm}
+				\normalbaselines 
+				\usebeamerfont{notice}
+				\usebeamercolor[fg]{normal text}
+				\textcopyright European Union 2020\\
+				~\\
+				Unless otherwise noted the reuse of this presentation is authorised under the CC BY 4.0 license. For any use or reproduction of elements that are not owned by the\\ EU, permission may need to be sought directly from the respective right holders.\\
+				~\\
+				\@CopyrightInfo
+			\end{minipage}
+			}
+			\end{pgftranslate}
+		
+			%  Add bottom blue bar
+			\pgfsetfillcolor{lightblue}
+			\begin{pgftranslate}{\pgfpoint{4.5mm}{-5.32cm}}
+				\pgfrect[fill]{\pgfxy(0,0)}{\pgfxy(0.05,0.59)}
+			\end{pgftranslate}	
+		
+		\end{pgfpicture}
+
+		\end{frame}
+	\else
+		\begin{frame}
+		\frametitle{} % Empty title
+		
+		\begin{pgfpicture}
+			\begin{pgftranslate}{\pgfpoint{-6.8mm}{-0.8cm}}
+				\pgfbox[left,bottom]{\includegraphics[width=16cm,height=4.5cm]{style/TitlePage}}
+			\end{pgftranslate}
+		
+			%
+			\pgfsetfillcolor{mainyellow}
+			\begin{pgftranslate}{\pgfpoint{4.5mm}{0.58cm}}
+				\pgfrect[fill]{\pgfxy(0,0)}{\pgfxy(0.05,3.11)}
+			\end{pgftranslate}
+		
+			%
+			\begin{pgftranslate}{\pgfpoint{0.8cm}{0.6cm}}
+			\pgfbox[left,bottom]{
+					\begin{minipage}{13.54cm}
+						\normalbaselines 
+						\usebeamerfont{title}
+						\usebeamercolor[fg]{subtitle}
+						Thank you
+					\end{minipage}	
+				}
+			\end{pgftranslate}
+		
+			\begin{pgftranslate}{\pgfpoint{0.8cm}{-2cm}}
+				\pgfbox[left,bottom]{\includegraphics[width=1.35cm]{style/license}
+				}
+			\end{pgftranslate}
+		
+			\begin{pgftranslate}{\pgfpoint{0.7cm}{-2.5cm}}
+				\pgfbox[left,top]{
+					\begin{minipage}{13.8cm}
+						\normalbaselines 
+						\usebeamerfont{notice}
+						\usebeamercolor[fg]{normal text}
+						\textcopyright European Union 2020\\
+						~\\
+						Unless otherwise noted the reuse of this presentation is authorised under the CC BY 4.0 license. For any use or reproduction of elements that are not owned by the\\ EU, permission may need to be sought directly from the respective right holders.\\
+						~\\
+						\@CopyrightInfo
+					\end{minipage}
+			}
+		\end{pgftranslate}
+		\end{pgfpicture}
+		
+		\end{frame}
+	\fi
+}
+
+% EU Contries Frame
+\def\EUCountriesFrame
+{
+	\begin{frame}
+	\frametitle{} % Empty title
+	
+	\begin{pgfpicture}
+		\begin{pgftranslate}{\pgfpoint{-6.7mm}{-4.5cm}}
+			\pgfbox[left,bottom]{\includegraphics[width=16cm]{style/EUCountries}}
+		\end{pgftranslate}
+	\end{pgfpicture}
+	            
+	\end{frame}
+}	
+%%
+%% End of file `jrc-beamer.sty'. 

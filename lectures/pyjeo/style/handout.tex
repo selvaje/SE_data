@@ -1,0 +1,40 @@
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{2 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{2pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=2,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.71\pgfphysicalwidth,%
+    resized height=.71\pgfphysicalheight,%
+    center=\pgfpoint{.5\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.71\pgfphysicalwidth,%
+    resized height=.71\pgfphysicalheight,%
+    center=\pgfpoint{.5\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{2 on 1 boxed}[a4paper, border shrink=2mm]
+  \nofiles
+}
