@@ -44,9 +44,11 @@ We will use Montane woodcreper (Lepidocolaptes lacrymiger) as example species.
 
 This species has a large range, occurring from the coastal cordillera of Venezuela along the Andes south to south-east Peru and central Bolivia.
 
-<img src='../images/Montane_Woodcreeper.jpg' width="400">
+```{r, echo=FALSE}
+knitr::include_graphics("../images/Montane_Woodcreeper.jpg")
+```
 
-## Read in points data 
+# Read in points data 
 
 ## Load observation presence dataset
 
@@ -73,19 +75,19 @@ str(points)
 ## Load the environmental data layers
 
 ```{r}
-rCld   <- raster("./geodata/cloud/SA_meanannual_crop_msk.tif")
+rCld   <- raster("./geodata/cloud/SA_meanannual.tif")
 # compute min and max
 rCld   =  setMinMax(rCld)
-rCldIA <- raster("./geodata/cloud/SA_intra_crop_msk.tif")
+rCldIA <- raster("./geodata/cloud/SA_intra.tif")
 rCldIA =  setMinMax(rCldIA)
-rElv   <- raster("./geodata/dem/SA_elevation_mn_GMTED2010_mn_crop_msk.tif")
+rElv   <- raster("./geodata/dem/SA_elevation_mn_GMTED2010_mn_msk.tif")
 rElv   =  setMinMax(rElv)
-rVeg   <- raster("./geodata/vegetation/SA_tree_mn_percentage_GFC2013_crop_msk.tif")
+rVeg   <- raster("./geodata/vegetation/SA_tree_mn_percentage_GFC2013.tif")
 rVeg   =  setMinMax(rVeg)
 rElv
 ```
 
-### Load expert range map 
+## Load expert range map 
 
 ```{r}
 birdrange <- readOGR("./geodata/shp", "cartodb-query")
@@ -165,7 +167,7 @@ pdata@data[,c("lon","lat")] <- coordinates(pdata)
 table(pdata$presence)
 ```
 
-### Plot the environmental data layers
+## Plot the environmental data layers
 
 ```{r}
 env <- stack(c(rCld,rCldIA,rElv,rVeg))
@@ -207,7 +209,7 @@ df.xact <- raster::extract(senv,pdata,sp=T)
 df.xact <- (df.xact[! is.na(df.xact$forest),])
 ```
 
-### Correlation plots
+## Correlation plots
 
 ```{r}
 ## convert to 'long' format for easier plotting
@@ -230,13 +232,15 @@ ggplot(df.xactl,aes(x=value,y=presence))+facet_wrap(~variable)+
   theme(text = element_text(size = 20))  
 ```
 
-### Model Fitting
+# Model Fitting
 
 
-cross validation 
+## Cross validation 
 
+```{r, echo=FALSE}
+knitr::include_graphics("../images/cross_vld.gif")
+```
 
-<img src='../images/cross_vld.gif' width="600">
 
 ```{r}
 df.xact <- as.data.frame(df.xact)
@@ -258,7 +262,7 @@ mdl.glm <- glm(presence~cld+cld_ia*I(cld_ia^2)+elev*I(elev^2)+forest, family=bin
 summary(mdl.glm)
 ```
 
-### Prediction
+# Prediction
 
 Calculate estimates of p(occurrence) for each cell.
 We can use the predict function in the raster package to make the predictions across the full raster grid and save the output.
@@ -276,7 +280,7 @@ plotROC(df.xact[which(df.xact$grp==1),"presence"],pred.glm1)
 plotROC(df.xact[which(df.xact$grp==2),"presence"],pred.glm2)
 ```
 
-### Out mapping
+## Out mapping
 
 ```{r}
 p1 <- raster::predict(senv,mdl.glm,type="response")
@@ -296,15 +300,16 @@ gplot(p1)+geom_tile(aes(fill=value))+
   coord_equal()
 ```
 
-## Cross Validation
+# Cross Validation
 
 The library caret allow an easy implementation of the Cross Validation for several models.
 
 ```{r}
 ctrl <- trainControl(method = "cv", number = 10)
 
-mdl.glm.cv <- train(  as.factor(presence) ~cld+cld_ia*I(cld_ia^2)+elev*I(elev^2)+forest, 
-family=binomial(link=logit),  data = df.xact, method = "glm", trControl = ctrl, metric='Accuracy')
+mdl.glm.cv <- train(  as.factor(presence) ~cld+cld_ia*I(cld_ia^2)+elev*I(elev^2)+forest,
+                      family=binomial(link=logit),  data = df.xact, method = "glm", trControl = ctrl,
+                      metric='Accuracy', na.action=na.exclude)
 ```
 
 ```{r}
@@ -321,7 +326,7 @@ pred.mdl.glm.cv.raw <- raster::predict(senv,mdl.glm.cv ,type="raw")
 plot(pred.mdl.glm.cv.raw)
 ```
 
-Predict and ploting in terms of probability
+Predict and plotting in terms of probability
 
 ```{r}
 pred.mdl.glm.cv.prob1 <- raster::predict(senv,mdl.glm.cv ,type="prob" , index=1)
@@ -333,11 +338,11 @@ pred.mdl.glm.cv.prob2 <- raster::predict(senv,mdl.glm.cv ,type="prob" , index=2)
 plot(pred.mdl.glm.cv.prob2)
 ```
 
-## References
+# References
 
 - https://en.wikipedia.org/wiki/Cross-validation
 
-## Random Forest model
+# Random Forest model
 
 Random Forest is an ensemble learning method for classification, regression and other tasks that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean/average prediction (regression) of the individual trees (source https://en.wikipedia.org/wiki/Random_forest) 
 
@@ -345,14 +350,17 @@ The randomForest packages (https://cran.r-project.org/web/packages/randomForest/
 (check also ranger: A Fast Implementation of Random Forests  https://cran.r-project.org/web/packages/ranger/index.html )
 
 ```{r}
-mdl.rf <- randomForest(as.factor(presence) ~ cld + cld_ia + elev +forest, data=subset(df.xact,grp==1))
+mdl.rf <- randomForest(as.factor(presence) ~ cld + cld_ia + elev +forest, data=subset(df.xact,grp==1),
+                       na.action=na.exclude)
 ```
 
 ```{r}
 mdl.rf
 ```
 
-### Predict as presence / absence
+## Predict as presence / absence
+
+(This may take a while to run)
 
 ```{r}
 pred.rf.resp  <- raster::predict(senv , mdl.rf , type='response')
@@ -362,7 +370,9 @@ pred.rf.resp  <- raster::predict(senv , mdl.rf , type='response')
 plot(pred.rf.resp)
 ```
 
-### Predict as probability of presence / absence
+## Predict as probability of presence / absence
+
+(This may take a while to run)
 
 ```{r}
 pred.rf.prob1 <- raster::predict(senv , mdl.rf , type='prob' , index=1)   
@@ -374,7 +384,7 @@ plot(pred.rf.prob1)
 plot(pred.rf.prob0)
 ```
 
-### Predict occurence presence
+## Predict occurence presence
 
 Create a raste with 10 km resoultion (0.083333333333)
 
