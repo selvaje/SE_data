@@ -19,7 +19,7 @@ Start R in the bash terminal and run the following lines to install the librarie
     install.packages("randomForest")
 ```
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 library(ggplot2)
 library(rgdal)
 library(raster)
@@ -75,14 +75,14 @@ str(points)
 ## Load the environmental data layers
 
 ```{r}
-rCld   <- raster("./geodata/cloud/SA_meanannual.tif")
+rCld   <- raster("./geodata/cloud/SA_meanannual_crop_msk.tif")
 # compute min and max
 rCld   =  setMinMax(rCld)
-rCldIA <- raster("./geodata/cloud/SA_intra.tif")
+rCldIA <- raster("./geodata/cloud/SA_intra_crop_msk.tif")
 rCldIA =  setMinMax(rCldIA)
-rElv   <- raster("./geodata/dem/SA_elevation_mn_GMTED2010_mn_msk.tif")
+rElv   <- raster("./geodata/dem/SA_elevation_mn_GMTED2010_mn_crop_msk.tif")
 rElv   =  setMinMax(rElv)
-rVeg   <- raster("./geodata/vegetation/SA_tree_mn_percentage_GFC2013.tif")
+rVeg   <- raster("./geodata/vegetation/SA_tree_mn_percentage_GFC2013_crop_msk.tif")
 rVeg   =  setMinMax(rVeg)
 rElv
 ```
