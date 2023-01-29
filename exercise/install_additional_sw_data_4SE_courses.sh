@@ -36,15 +36,16 @@ apt -y install --no-install-recommends r-base
 echo Install R studio https://rstudio.com
    
 apt-get install gdebi-core
-wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2022.02.1-461-amd64.deb
-gdebi rstudio-2022.02.1-461-amd64.deb
+wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2022.12.0-353-amd64.deb
+
+gdebi rstudio-2022.12.0-353-amd64.deb
     
 echo  Install additional editors
     
     # one of the oldest editor which is still used my many programmer
     apt install -y emacs
     # and editor markdown language
-    add-apt-repository -y ppa:wereturtle/ppa
+    # add-apt-repository -y ppa:wereturtle/ppa
     # apt update -y
     # apt install -y ghostwriter
     # test ghostwriter
