@@ -21,24 +21,24 @@ echo  Install OpenEV http://openev.sourceforge.net
 
 # Install a new version of [R](https://www.r-project.org/   ; https://cran.mirror.garr.it/CRAN/ ) 
 
-apt -y update -qq
+# apt -y update -qq
 # install two helper packages we need
-apt -y install --no-install-recommends software-properties-common dirmngr
+# apt -y install --no-install-recommends software-properties-common dirmngr
 # add the signing key (by Michael Rutter) for these repos
 # To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
 # Fingerprint: 298A3A825C0D65DFD57CBB651716619E084DAB9
-wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 # add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
-add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+# add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
 
-apt -y install --no-install-recommends r-base
+# apt -y install --no-install-recommends r-base
     
-echo Install R studio https://rstudio.com
+# echo Install R studio https://rstudio.com
    
-apt-get install gdebi-core
-wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2022.12.0-353-amd64.deb
+# apt-get install gdebi-core
+# wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2022.12.0-353-amd64.deb
 
-gdebi rstudio-2022.12.0-353-amd64.deb
+# gdebi rstudio-2022.12.0-353-amd64.deb
     
 echo  Install additional editors
     
