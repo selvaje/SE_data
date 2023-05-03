@@ -107,6 +107,9 @@ diagnostic<-variog.diagnostic.lm(fit.MLE)
 #################################################
 # geostatistical prediction
 ##################################################
+### http://spatial-ecology.net/docs/build/html/CASESTUDY/SDM2_Vath_Rmodel.html 
+### https://gatesfoundation.zoom.us/rec/share/0_cnl_cHMaR9I0iKLVibJPrOLmXaJiZ__Nf27p7H5Weig1lAAkB77V_jAm6qlu4.Tz4FqMYm6-lrP5Pj   GeoComp2022!
+
 # R functions can sometimes be fussy about whether their
 # arguments are matrices or data-frames
 galicia.grid <- gridpts(as.matrix(bound),xs=5000,ys=5000)
