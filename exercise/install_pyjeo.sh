@@ -2,8 +2,11 @@
 
 echo "installing dependencies"
 
+### remove the old xarray
+
+sudo rm -rf /usr/lib/python3/dist-packages/xarray*  # Someone installed an old package by hand on OSGeo Live 15 :-(
+
 sudo apt-get update
-sudo apt remove -y python3-xarray || true
 sudo apt-get install -y  \
         apt-utils \
         curl \
@@ -33,7 +36,9 @@ sudo apt-get install -y  \
         libjsoncpp-dev \
         libpython3-dev \
         libboost-serialization-dev \
-        libboost-filesystem-dev \
+        libboost-filesystem-dev 
+
+sudo apt-get install --reinstall -y \
         python3-setuptools \
         python3 \
         python3-dev \
@@ -41,10 +46,11 @@ sudo apt-get install -y  \
         python3-gdal \
         python3-pip \
         python3-wheel \
-        python3-xarray \
         python3-netcdf4 \
         python3-pyproj \
         python3-pip-whl
+
+pip3 install xarray==0.21
 
 echo "install mial, jiplib, and pyjeo"
 
@@ -53,11 +59,12 @@ echo "install mial, jiplib, and pyjeo"
 #
 
 # Env vars for paths, library versions
-INSTALL_HOME=$HOME/pyjeo-install
+
+INSTALL_HOME=$HOME/pyjeo-install/
+rm -fr $HOME/pyjeo-install/        ### remove 
 
 # Prepare compilation directory
 mkdir -p $INSTALL_HOME
-
 
 #
 # Download and compile libraries
@@ -74,7 +81,7 @@ set -xe \
         && cd build \
         && cmake .. \
         && sleep 5 \
-        && make -j $NCPU \
+        && make \
         && sudo make install \
     && sudo ldconfig \
     && cd $INSTALL_HOME \
@@ -92,7 +99,7 @@ set -xe \
     && cd build \
     && cmake .. \
     && sleep 5 \
-    && make -j $NCPU \
+    && make \
     && sudo make install \
     && sudo ldconfig \
     && cd $INSTALL_HOME \
