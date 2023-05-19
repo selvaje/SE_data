@@ -1,4 +1,5 @@
-#
+# https://gatesfoundation.zoom.us/rec/share/0_cnl_cHMaR9I0iKLVibJPrOLmXaJiZ__Nf27p7H5Weig1lAAkB77V_jAm6qlu4.Tz4FqMYm6-lrP5Pj
+# GeoComp2022!
 # empty workspace (OPTIONAL!)
 #
 rm(list=ls())
@@ -33,8 +34,8 @@ names(vario1)
 vario1$u
 # I prefer to choose my own distance bins
 u<-5000*(1:20) 
-vario2<-variogram(lead2000,var.name=~lead,coords=~x+y,uvec=u)
-
+vario2<-variogram(lead2000,var.name=~lead,coords=~x+y,
+                  uvec=u)
 plot(vario2$u,vario2$v,type="l",xlim=c(0,100000),
      xlab="u",ylab="V(u)") 
 # if you choose narrow bins, the result can look noisy,
@@ -72,8 +73,8 @@ spat.corr.diagnostic(loglead~1,coords=~x+y,
 ######################################################
 vario4<-variogram(lead2000,var.name=~loglead,
                   coords=~x+y,uvec=u)
-plot(vario4$u,vario4$v,pch=19,xlim=c(0,100000), ylim=c(0,0.25))
-
+plot(vario4$u,vario4$v,pch=19,xlim=c(0,100000),
+     ylim=c(0,0.25))
 # I use the variogram to choose initial values for
 # numerical optimisation of the likelihood function
 # (the statistically efficient method of estmating
@@ -193,6 +194,11 @@ summary(fit.glm)
 beta<-fit.glm$coef
 # I usually just guess initial values for the covariance 
 # parameters by visual inspection of the variogram
+
+# sigma^2 = variance of the Gaussian process 
+# phi = scale of the spatial correlation 
+# tau^2 = variance of the nugget effect 
+
 sigmasq<-0.3; phi<-0.7;tausq<-0.1
 # now you can set up the Monte Carlo maximum likleihood 
 # estimation of the model parameters
