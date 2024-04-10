@@ -58,6 +58,9 @@ apt install -y virtualenv
 virtualenv --system-site-packages -p /usr/bin/python3 $HOME/SE-venv
 cat  >>$HOME/.bashrc <<EOF
 
+# Pre-pend user's path for stuff installed by pip3
+export PATH=$HOME/.local/bin:$PATH
+
 # Now start SE virtual environment for SE
 source $HOME/SE-venv/bin/activate"
 
