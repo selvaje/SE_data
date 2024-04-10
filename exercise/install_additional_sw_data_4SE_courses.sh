@@ -62,7 +62,7 @@ cat  >>$HOME/.bashrc <<EOF
 export PATH=$HOME/.local/bin:$PATH
 
 # Now start SE virtual environment for SE
-source $HOME/SE-venv/bin/activate"
+[ -f $HOME/SE-venv/bin/activate ] && source $HOME/SE-venv/bin/activate"
 
 EOF
 
