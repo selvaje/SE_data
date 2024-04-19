@@ -55,8 +55,8 @@ sudo apt-get install --reinstall -y \
         python3-pip-whl 
 
 # All those better installed under a venv...
-pip3 install xarray>=2022.3.0 --upgrade --ignore-installed --force-reinstall
-pip3 install numpy>=1.23 --upgrade --ignore-installed --force-reinstall
+pip3 install 'xarray>=2022.3.0' --upgrade --ignore-installed --force-reinstall
+pip3 install 'numpy>=1.23' --upgrade --ignore-installed --force-reinstall
 pip3 install scikit-learn --upgrade --ignore-installed --force-reinstall
 
 echo "install mial, jiplib, and pyjeo"
