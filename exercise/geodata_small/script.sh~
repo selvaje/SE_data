@@ -1,0 +1,20 @@
+
+
+
+# create a tif
+
+ncols 10       >  rast_ID.asc 
+nrows 10       >> rast_ID.asc 
+xllcorner 0    >> rast_ID.asc 
+yllcorner 0    >> rast_ID.asc 
+cellsize  1    >> rast_ID.asc
+
+awk ' BEGIN {  
+for (row=1 ; row<=10 ; row++)  { 
+     for (col=1 ; col<=10 ; col++) { 
+         printf ("%i " , 16777200+col+(row-1)*10  ) } ; printf ("\n")  }}' >> rast_ID.asc
+
+cat rast_ID.asc
+
+gdal_translate -co COMPRESS=DEFLATE -co ZLEVEL=9  rast_ID.asc rast_ID.tif 
+ 

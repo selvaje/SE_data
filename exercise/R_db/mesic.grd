@@ -1,0 +1,26 @@
+[general]
+creator=R package 'raster'
+created=2017-11-20 15:27:53
+[georeference]
+nrows=2050
+ncols=1586
+xmin=16965
+ymin=153735
+xmax=350025
+ymax=584235
+projection=+proj=aea +lat_1=46 +lat_2=48 +lat_0=44 +lon_0=-109.5 +x_0=600000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+[data]
+datatype=FLT8S
+byteorder=little
+nbands=1
+bandorder=BIL
+categorical=FALSE
+minvalue=0
+maxvalue=1
+nodatavalue=-1.7e+308
+[legend]
+legendtype=
+values=
+color=
+[description]
+layername=a_pmesic

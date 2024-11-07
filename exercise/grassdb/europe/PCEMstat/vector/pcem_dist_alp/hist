@@ -1,0 +1,5 @@
+COMMAND: v.in.ogr -r dsn="/home/stefano/ost4sem/exercise/rp_ratio/pcem_euforgen/Pinuscembra_LAEA.shp" output="pcem_dist_alp" min_area=0.0001 snap=-1
+GISDBASE: /home/stefano/ost4sem/grassdb
+LOCATION: europe MAPSET: PCEMstat USER: stefano DATE: Thu Mar  4 15:31:57 2010
+---------------------------------------------------------------------------------
+6 input polygonsTotal area: 6.803964e+10 (7 areas)Overlapping area: 0.000000e+00 (0 areas)Area without category: 4.977081e+04 (1 areas)

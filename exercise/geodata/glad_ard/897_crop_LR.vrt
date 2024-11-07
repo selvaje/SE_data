@@ -1,0 +1,68 @@
+<VRTDataset rasterXSize="200" rasterYSize="220">
+  <SRS dataAxisToSRSAxisMapping="2,1">GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]]</SRS>
+  <GeoTransform>  1.5290000000000001e+01,  2.5000000000000001e-04,  0.0000000000000000e+00,  3.8055000000000000e+01,  0.0000000000000000e+00, -2.5000000000000001e-04</GeoTransform>
+  <Metadata>
+    <MDI key="AREA_OR_POINT">Area</MDI>
+  </Metadata>
+  <Metadata domain="IMAGE_STRUCTURE">
+    <MDI key="COMPRESSION">DEFLATE</MDI>
+    <MDI key="INTERLEAVE">PIXEL</MDI>
+  </Metadata>
+  <VRTRasterBand dataType="UInt16" band="1">
+    <Metadata>
+      <MDI key="STATISTICS_MAXIMUM">27765</MDI>
+      <MDI key="STATISTICS_MEAN">3948.2311363636</MDI>
+      <MDI key="STATISTICS_MINIMUM">739</MDI>
+      <MDI key="STATISTICS_STDDEV">4376.4806673476</MDI>
+      <MDI key="STATISTICS_VALID_PERCENT">100</MDI>
+    </Metadata>
+    <ColorInterp>Gray</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">897_crop.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="400" RasterYSize="440" DataType="UInt16" BlockXSize="400" BlockYSize="1" />
+      <SrcRect xOff="200" yOff="220" xSize="200" ySize="220" />
+      <DstRect xOff="0" yOff="0" xSize="200" ySize="220" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="UInt16" band="2">
+    <Metadata>
+      <MDI key="STATISTICS_MAXIMUM">30677</MDI>
+      <MDI key="STATISTICS_MEAN">5259.5171818182</MDI>
+      <MDI key="STATISTICS_MINIMUM">1468</MDI>
+      <MDI key="STATISTICS_STDDEV">4540.6902639582</MDI>
+      <MDI key="STATISTICS_VALID_PERCENT">100</MDI>
+    </Metadata>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">897_crop.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="400" RasterYSize="440" DataType="UInt16" BlockXSize="400" BlockYSize="1" />
+      <SrcRect xOff="200" yOff="220" xSize="200" ySize="220" />
+      <DstRect xOff="0" yOff="0" xSize="200" ySize="220" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="UInt16" band="3">
+    <Metadata>
+      <MDI key="STATISTICS_MAXIMUM">35495</MDI>
+      <MDI key="STATISTICS_MEAN">5780.833</MDI>
+      <MDI key="STATISTICS_MINIMUM">1437</MDI>
+      <MDI key="STATISTICS_STDDEV">5264.4765489572</MDI>
+      <MDI key="STATISTICS_VALID_PERCENT">100</MDI>
+    </Metadata>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">897_crop.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="400" RasterYSize="440" DataType="UInt16" BlockXSize="400" BlockYSize="1" />
+      <SrcRect xOff="200" yOff="220" xSize="200" ySize="220" />
+      <DstRect xOff="0" yOff="0" xSize="200" ySize="220" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="UInt16" band="4">
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">897_crop.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SrcRect xOff="200" yOff="220" xSize="200" ySize="220" />
+      <DstRect xOff="0" yOff="0" xSize="200" ySize="220" />
+    </SimpleSource>
+  </VRTRasterBand>
+</VRTDataset>

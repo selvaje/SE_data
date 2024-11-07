@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH -p GUESTS_Low
+#SBATCH -J sc01_split_tif.sh
+#SBATCH -n 1 -c 1 -N 1
+#SBATCH -t 1:00:00 
+#SBATCH -o /lustre/scratch/GUESTS/insert_your_user/stdout/sc01_split_tif.sh.%J.out
+#SBATCH -e /lustre/scratch/GUESTS/insert_your_user/stderr/sc01_split_tif.sh.%J.err
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=email
+#SBATCH --mem-per-cpu=500M
+
+#### sbatch /home/GUESTS/$USER/scripts/sc01_split_tif.sh
+
+
+DIR=/home/GUESTS/$USER/ost4sem/exercise/KenyaGIS/Landsat
+
+gdalbuildvrt -overwrite -separate -te 36.5 -1.5 37 -1 $DIR/stack_UL.vrt $DIR/LT51680612010231MLK00_B1_proj.tif $DIR/LT51680612010231MLK00_B2_proj.tif $DIR/LT51680612010231MLK00_B3_proj.tif
+gdalbuildvrt -overwrite -separate -te 36.5 -2 37 -1.5 $DIR/stack_LL.vrt $DIR/LT51680612010231MLK00_B1_proj.tif $DIR/LT51680612010231MLK00_B2_proj.tif $DIR/LT51680612010231MLK00_B3_proj.tif
+
+gdalbuildvrt -overwrite -separate -te 37 -1.5 37.5 -1 $DIR/stack_UR.vrt $DIR/LT51680612010231MLK00_B1_proj.tif $DIR/LT51680612010231MLK00_B2_proj.tif $DIR/LT51680612010231MLK00_B3_proj.tif
+gdalbuildvrt -overwrite -separate -te 37 -2 37.5 -1.5 $DIR/stack_LR.vrt $DIR/LT51680612010231MLK00_B1_proj.tif $DIR/LT51680612010231MLK00_B2_proj.tif $DIR/LT51680612010231MLK00_B3_proj.tif
+
+

@@ -1,0 +1,28 @@
+# QA code   Description Quality
+# 0         Nodata                                                          stripes and out of the image
+# 1         Land                                                            clear-sky
+# 2         Water                                                           clear-sky
+# 3         Cloud                                                           Cloud contaminated
+# 4         Cloud shadow                                                    Shadow contaminated
+# 5         Hillshade                                                       clear-sky 
+# 6         Snow                                                            clear-sky
+# 7         Haze                                                            Cloud contaminated
+# 8         Cloud buffer                                                    Cloud contaminated
+# 9         Shadow buffer                                                   Shadow contaminated
+# 10        Shadow high likelihood                                          Shadow contaminated
+# 11        Additional cloud buffer over land                               clear-sky
+# 12        Additional cloud buffer over water                              clear-sky
+# 14        Additional shadow buffer over land                              clear-sky
+# 15        Land, water detected but not used                               clear-sky
+# 16        Additional cloud buffer over land, water detected but not used  clear-sky
+# 17        Additional shadow buffer over land, water detected but not used clear-sky
+
+# 1 Normalized surface reflectance of blue band
+# 2 Normalized surface reflectance of green band
+# 3 Normalized surface reflectance of red band
+# 4 Normalized surface reflectance of NIR band
+# 5 Normalized surface reflectance of SWIR1 band
+# 6 Normalized surface reflectance of SWIR2 band
+# 7 Normalized brightness temperature
+# 8 Observation quality code (QA) 
+
