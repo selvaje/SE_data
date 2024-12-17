@@ -213,3 +213,6 @@ ll /home/selv/.grass7/addons/docs/html/
 ls  /home/selv/.grass7/addons/docs/html/
 r.stream.basins -help 
 exit
+g.gui wxpython 
+exit 
+exit 
