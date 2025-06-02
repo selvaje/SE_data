@@ -216,3 +216,9 @@ exit
 g.gui wxpython 
 exit 
 exit 
+exit 
+echo $GISBASE
+exit
+g.extension extension=r.mapcalc.tiled 
+exit 
+exit
