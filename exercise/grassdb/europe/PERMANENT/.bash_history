@@ -222,3 +222,22 @@ exit
 g.extension extension=r.mapcalc.tiled 
 exit 
 exit
+g.list rast 
+r.report rast=pcem_euforgen
+r.report map=pcem_euforgen
+r.info 
+r.info  map=pcem_euforgen
+r.info 
+r.info -r  map=pcem_euforgen
+r.info  map=pcem_euforgen | 
+r.info 
+r.info -s  map=pcem_euforgen
+r.info  map=pcem_euforgen
+r.info  map=pcem_euforgen | grep data 
+r.info  map=pcem_euforgen | grep Range 
+r.info  map=pcem_euforgen | grep Range | cut -d " " 3
+r.info  map=pcem_euforgen | grep Range | cut -d " " -f 3
+r.info  map=pcem_euforgen | grep Range | cut -d " " -f 3
+r.info  map=pcem_euforgen | grep Range | awk '{ print $0 }' 
+r.info  map=pcem_euforgen | grep Range | awk '{ print $7 , $10  }' 
+exit 

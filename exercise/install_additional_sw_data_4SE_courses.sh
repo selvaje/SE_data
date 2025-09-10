@@ -1,23 +1,25 @@
 echo Install http://pktools.nongnu.org/html/index.html
     
-    apt install -y pktools 
+    apt install -y gdal-bin gdal-plugins python3-gdal pktools  rasterio grass-core grass-gui grass-doc qgis-plugin-grass qgis-plugin-grass-common python3-qgis qgis 
 
 echo  Install OpenEV http://openev.sourceforge.net
 
-    # first install dependencies libraries
-    apt install -y libc6:i386 libxext6:i386 libstdc++5
-    # download and unzip openev 
-    cd /tmp
-    wget https://sourceforge.net/projects/openev/files/OpenEV/1.8.0/openev-linux-180.tar.gz
-    tar xvf openev-linux-180.tar.gz
-    #install openev
-    cd openev
-    bash ./install linux   /usr/bin/openev
-    # add to the ~/.bashrc the alias openev
-    echo "alias openev='/usr/bin/openev/bin/openev' "  >>  /home/user/.bashrc
-    source /home/user/.bashrc
-    # test openev 
-    # openev /home/user/jupyter/notebook_gallery/Rasterio/data/world.rgb.tif /home/user/.local/share/cartopy/shapefiles/natural_earth/physical/ne_110m_land.shp
+# first install dependencies libraries
+sudo dpkg --add-architecture i386
+sudo apt update
+apt install -y libc6:i386 libxext6:i386 libstdc++5
+# download and unzip openev 
+cd /tmp
+wget https://sourceforge.net/projects/openev/files/OpenEV/1.8.0/openev-linux-180.tar.gz
+tar xvf openev-linux-180.tar.gz
+#install openev
+cd openev
+bash ./install linux   /usr/bin/openev
+# add to the ~/.bashrc the alias openev
+echo "alias openev='/usr/bin/openev/bin/openev' "  >>  /home/user/.bashrc
+source $HOME/.bashrc
+# test openev 
+# openev /home/user/jupyter/notebook_gallery/Rasterio/data/world.rgb.tif /home/user/.local/share/cartopy/shapefiles/natural_earth/physical/ne_110m_land.shp
 
 # Install a new version of [R](https://www.r-project.org/   ; https://cran.mirror.garr.it/CRAN/ ) 
 
