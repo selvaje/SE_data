@@ -1,12 +1,17 @@
-echo Install http://pktools.nongnu.org/html/index.html
+echo Install gis/rs sw 
     
-    apt install -y gdal-bin gdal-plugins python3-gdal pktools  rasterio grass-core grass-gui grass-doc qgis-plugin-grass qgis-plugin-grass-common python3-qgis qgis 
+apt install -y gdal-bin gdal-plugins python3-gdal pktools  rasterio grass-core grass-gui grass-doc qgis-plugin-grass qgis-plugin-grass-common python3-qgis qgis emacs
 
+wget -O- https://people.debian.org/~frankie/debian/frankie-unofficial.asc | sudo tee /etc/apt/trusted.gpg.d/frankie-unofficial.asc ;
+echo "deb [arch=amd64] http://people.debian.org/~frankie/ubuntu noble main" | sudo   tee /etc/apt/sources.list.d/frankie-unofficial.list;
+apt update;
+apt install libmiallib1 libmiallib-dev python3-jiplib python3-pyjeo;
+    
 echo  Install OpenEV http://openev.sourceforge.net
 
 # first install dependencies libraries
-sudo dpkg --add-architecture i386
-sudo apt update
+dpkg --add-architecture i386
+apt update
 apt install -y libc6:i386 libxext6:i386 libstdc++5
 # download and unzip openev 
 cd /tmp
@@ -42,10 +47,10 @@ source $HOME/.bashrc
 
 # gdebi rstudio-2022.12.0-353-amd64.deb
     
-echo  Install additional editors
+# echo  Install additional editors
     
     # one of the oldest editor which is still used my many programmer
-    apt install -y emacs
+
     # and editor markdown language
     # add-apt-repository -y ppa:wereturtle/ppa
     # apt update -y
@@ -53,5 +58,5 @@ echo  Install additional editors
     # test ghostwriter
     # ghostwriter /home/user/jupyter/notebook_gallery/Pandas_py3/README.md
 
-echo  Download the data and start to follow the exercises.
+# echo  Download the data and start to follow the exercises.
 
