@@ -21,7 +21,7 @@ tar xvf openev-linux-180.tar.gz
 cd openev
 bash ./install linux   /usr/bin/openev
 # add to the ~/.bashrc the alias openev
-echo "alias openev='/usr/bin/openev/bin/openev' "  >>  /home/user/.bashrc
+echo "alias openev='/usr/bin/openev/bin/openev' "  >>  $HOME/.bashrc
 source $HOME/.bashrc
 # test openev 
 # openev /home/user/jupyter/notebook_gallery/Rasterio/data/world.rgb.tif /home/user/.local/share/cartopy/shapefiles/natural_earth/physical/ne_110m_land.shp
