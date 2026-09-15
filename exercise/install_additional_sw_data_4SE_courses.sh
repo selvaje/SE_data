@@ -1,28 +1,44 @@
 echo Install gis/rs sw 
     
-apt install -y gdal-bin gdal-plugins python3-gdal pktools  rasterio grass-core grass-gui grass-doc qgis-plugin-grass qgis-plugin-grass-common python3-qgis qgis emacs
+apt -y gdal-bin python3-gdal libgdal-plugin-grass pktools python3-rasterio \
+  grass grass-core grass-gui grass-doc \
+  qgis qgis-plugin-grass qgis-plugin-grass-common python3-qgis \
+  emacs \
+  python3-geopandas \
+  python3-shapely \
+  python3-fiona \
+  python3-folium \
+  python3-xarray \
+  python3-rasterio \
+  python3-gdal \
+  python3-pyproj \
+  python3-cartopy \
+  python3-matplotlib \
+  python3-scipy \
+  python3-scikit-image
 
-wget -O- https://people.debian.org/~frankie/debian/frankie-unofficial.asc | sudo tee /etc/apt/trusted.gpg.d/frankie-unofficial.asc ;
-echo "deb [arch=amd64] http://people.debian.org/~frankie/ubuntu noble main" | sudo   tee /etc/apt/sources.list.d/frankie-unofficial.list;
-apt update;
-apt install libmiallib1 libmiallib-dev python3-jiplib python3-pyjeo;
+
+# wget -O- https://people.debian.org/~frankie/debian/frankie-unofficial.asc | sudo tee /etc/apt/trusted.gpg.d/frankie-unofficial.asc ;
+# echo "deb [arch=amd64] http://people.debian.org/~frankie/ubuntu noble main" | sudo   tee /etc/apt/sources.list.d/frankie-unofficial.list;
+# apt update;
+# apt install libmiallib1 libmiallib-dev python3-jiplib python3-pyjeo;
     
-echo  Install OpenEV http://openev.sourceforge.net
+# echo  Install OpenEV http://openev.sourceforge.net
 
 # first install dependencies libraries
-dpkg --add-architecture i386
-apt update
-apt install -y libc6:i386 libxext6:i386 libstdc++5
+# dpkg --add-architecture i386
+# apt update
+# apt install -y libc6:i386 libxext6:i386 libstdc++5
 # download and unzip openev 
-cd /tmp
-wget https://sourceforge.net/projects/openev/files/OpenEV/1.8.0/openev-linux-180.tar.gz
-tar xvf openev-linux-180.tar.gz
+# cd /tmp
+# wget https://sourceforge.net/projects/openev/files/OpenEV/1.8.0/openev-linux-180.tar.gz
+# tar xvf openev-linux-180.tar.gz
 #install openev
-cd openev
-bash ./install linux   /usr/bin/openev
+# cd openev
+# bash ./install linux   /usr/bin/openev
 # add to the ~/.bashrc the alias openev
-echo "alias openev='/usr/bin/openev/bin/openev' "  >>  $HOME/.bashrc
-source $HOME/.bashrc
+# echo "alias openev='/usr/bin/openev/bin/openev' "  >>  $HOME/.bashrc
+# source $HOME/.bashrc
 # test openev 
 # openev /home/user/jupyter/notebook_gallery/Rasterio/data/world.rgb.tif /home/user/.local/share/cartopy/shapefiles/natural_earth/physical/ne_110m_land.shp
 

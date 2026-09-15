@@ -22,5 +22,5 @@ grass_prompt() {
 }
 PROMPT_COMMAND=grass_prompt
 export HOME="/home/selv"
-export PATH="/usr/lib/grass84/bin:/usr/lib/grass84/scripts:/home/selv/.grass8/addons/bin:/home/selv/.grass8/addons/scripts:/home/selv/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/selv/julia-1.9.3/bin"
+export PATH="/usr/lib/grass84/bin:/usr/lib/grass84/scripts:/home/selv/.grass8/addons/bin:/home/selv/.grass8/addons/scripts:/home/selv/.local/bin:/home/selv/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/selv/julia-1.9.3/bin:/home/selv/.local/bin:/home/selv/.local/bin"
 trap "exit" TERM

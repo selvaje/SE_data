@@ -241,3 +241,42 @@ r.info  map=pcem_euforgen | grep Range | cut -d " " -f 3
 r.info  map=pcem_euforgen | grep Range | awk '{ print $0 }' 
 r.info  map=pcem_euforgen | grep Range | awk '{ print $7 , $10  }' 
 exit 
+exit 
+g.extension extension=r.accumulate
+g.extension extension=flowaccumulation
+g.extension extension=r.flowaccumulation
+exit
+g.region -p 
+exit
+g.region -p 
+exit 
+g.region -p 
+exit
+ll SE_data/exercise/grassdb/europe/PERMANENT/
+ls  SE_data/exercise/grassdb/europe/PERMANENT/
+ls  SE_data/exercise/grassdb/europe/PERMANENT/cellhd
+ls  SE_data/exercise/grassdb/europe/PERMANENT/cellhd/fnfpc
+gdalinfo fnfpc
+r.info -g fnfpc_crop 
+gdalinfo --formats | grep -i grass
+gdalinfo SE_data/exercise/grassdb/europe/PCEMstat/cellhd/fnfpc_crop
+ll  SE_data/exercise/grassdb/europe/PCEMstat/cellhd/fnfpc_crop
+ls   SE_data/exercise/grassdb/europe/PCEMstat/cellhd/fnfpc_crop
+gdalinfo ./SE_data/exercise/grassdb/europe/PCEMstat/cellhd/fnfpc_crop
+exit 
+ll
+la 
+ls -l 
+ls -l SE_data/exercise/grass/
+ls -l SE_data/exercise/grassdb/
+ls -l SE_data/exercise/grassdb/europe/
+ls -l SE_data/exercise/grassdb/europe/PERMANENT
+ls -l SE_data/exercise/grassdb/europe/PERMANENT/cellhd
+gdalinfo  SE_data/exercise/grassdb/europe/PERMANENT/cellhd/fnfpc 
+ll   SE_data/exercise/grassdb/europe/
+ls    SE_data/exercise/grassdb/europe/
+ls    SE_data/exercise/grassdb/europe/PCEM
+ls    SE_data/exercise/grassdb/europe/PCEM/cell
+ls -l     SE_data/exercise/grassdb/europe/PCEM/cell
+ls -lh     SE_data/exercise/grassdb/europe/PCEM/cell
+exit 
