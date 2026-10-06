@@ -3,6 +3,7 @@
 
 # Create the lat long file
 
+cd media/sf_LVM_shared/my_SE_data/exercise
 echo 32.5 2.5 > geodata/LST/x_y.txt
 echo 31.1 2.1 >> geodata/LST/x_y.txt
 # looping trough the images
